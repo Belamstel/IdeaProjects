@@ -36,8 +36,8 @@ public class SecondLesson5Tests {
         // Проверяем что по клику совершается переход на сайт Госуслуг
         sleep(500);
         String actualUrl =url();
-        // Проверка что урл содержит необходимый текст. //Тут падает, возможно что то делаю не так
-        assertTrue(actualUrl.contains("https://esia.gosuslugi.ru/)") ,"Авторизация через Гослуслуги доступна");
+        // Проверка что урл содержит необходимый текст.
+        assertEquals(actualUrl.contains("https://esia.gosuslugi.ru/") , true);
     }
 
     @Test
@@ -80,6 +80,5 @@ public class SecondLesson5Tests {
                         .response();
         String jsonString = response.asString();
         assertEquals(jsonString.contains("Резорба"), true);
-
     }
 }
