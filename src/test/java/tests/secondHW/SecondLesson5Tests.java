@@ -1,11 +1,12 @@
 package tests.secondHW;
 
 
-/*
+
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
- */
+
 
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SecondLesson5Tests {
@@ -59,23 +61,25 @@ public class SecondLesson5Tests {
         // Проверяем что возможность вызова врача есть только для авторизованного пользователя
         $(byText("Войти через ЕСИА")).should(visible);
     }
-/*
-// Проблема с созданием теста для проверки Апи. Не подключается RestAssured
+
     @Test
     void findLsApi() {
-        RestAssured.baseURL = "http://new.2dr.ru";
+        RestAssured.baseURI = "http://new.2dr.ru";
                 Response response = RestAssured
                 .given()
-                .contentType(ContentType.JSON)
-                .body(data)
+                        .log().body()
+                        .contentType(ContentType.JSON)
+                        .queryParam("search","резорба")
+                        .queryParam("limit","10")
+                        .queryParam("offset","0")
                 .when()
-                .post("/api/medicines?")
-                .filter("search=%D1%80%D0%B5%D0%B7%D0%BE%D1%80%D0%B1%D0%B0&limit=10&offset=0")
+                        .get("/api/medicines")
                 .then()
-                .statusCode(200)
-                .extract()
-                .response();
-    }
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        String jsonString = response.asString();
+        assertEquals(jsonString.contains("Резорба"), true);
 
- */
+    }
 }
