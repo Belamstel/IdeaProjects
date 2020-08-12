@@ -1,4 +1,4 @@
-package tests.secondHW;
+package tests.homework_2;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -59,19 +59,18 @@ public class SecondLesson5Tests {
     @Test
     void findLsApi() {
         RestAssured.baseURI = "http://new.2dr.ru";
-                Response response = RestAssured
+        Response response = RestAssured
                 .given()
-                        .log().body()
-                        .contentType(ContentType.JSON)
-                        .queryParam("search","резорба")
-                        .queryParam("limit","10")
-                        .queryParam("offset","0")
+                .contentType(ContentType.JSON)
+                .queryParam("search","резорба")
+                .queryParam("limit","10")
+                .queryParam("offset","0")
                 .when()
-                        .get("/api/medicines")
+                .get("/api/medicines")
                 .then()
-                        .statusCode(200)
-                        .extract()
-                        .response();
+                .statusCode(200)
+                .extract()
+                .response();
         String jsonString = response.asString();
         assertEquals(jsonString.contains("Резорба"), true);
     }

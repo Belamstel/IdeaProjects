@@ -1,4 +1,4 @@
-package tests.thirdHW;
+package tests.homework_3;
 
 import org.junit.jupiter.api.Test;
 

@@ -19,6 +19,8 @@
 *.tar.gz
 *.rar
 *.iml
+#Custom files
+*.secret
 
 # Project gen files
 .idea
