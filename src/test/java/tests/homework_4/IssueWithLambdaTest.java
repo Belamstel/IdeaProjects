@@ -22,13 +22,12 @@ import static org.hamcrest.Matchers.equalTo;
 @Owner("ADyachenko")
 @Feature("Работа с задачами")
 
-public class IssueTest {
+public class IssueWithLambdaTest {
     private static final int ISSUE_NUMBER = 4;
     private static final String BASE_URL = "https://github.com/";
-    private static final String REPOSITORY = "qa_guruProjects";
+    private static final String REPOSITORY = "belamstel/qa_guruProjects";
     private static final String LOGIN = getCredentialsFromJson("ApiTests.secret", "login");
     private static final String PASSWORD = getCredentialsFromJson("ApiTests.secret", "pass");
-
     private static final String ISSUE_TITLE ="Homework 4";
     private static final String ISSUE_TEXT = "test";
 
@@ -68,8 +67,8 @@ public class IssueTest {
                 $x("//span[text()='New issue']").click();
                 $("#issue_title").click();
                 $("#issue_title").setValue(ISSUE_TITLE);
-                $("#issue_title").click();
-                $("#issue_title").setValue(ISSUE_TEXT);
+                $("#issue_body").click();
+                $("#issue_body").setValue(ISSUE_TEXT);
                 $(byText("Submit new issue")).click();
             });
 
@@ -83,9 +82,9 @@ public class IssueTest {
                         .get("/repos/belamstel/qa_guruProjects/issues/" + ISSUE_NUMBER)
                         .then()
                         .statusCode(200)
-                        .body("number", equalTo(ISSUE_NUMBER),
-                                 "title", equalTo(ISSUE_TITLE),
-                                 "body",equalTo(ISSUE_TEXT));
+                        .body("number", equalTo(ISSUE_NUMBER))
+                        .body("title", equalTo(ISSUE_TITLE))
+                        .body("body",equalTo(ISSUE_TEXT));
              });
             }
     }

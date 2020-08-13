@@ -3,15 +3,14 @@ package tests.secondHW;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -49,7 +48,7 @@ public class SecondLesson5Tests {
         
         // Проверям работоспособность поиска лекарственных средств
         $(byText("Наличие льготных лекарственных средств в аптеках")).click();
-        $(by("placeholder", "Поиск по номеру рецепта или наименованию ЛС")).setValue("Резорба").pressEnter();
+//        $(by("placeholder", "Поиск по номеру рецепта или наименованию ЛС")).setValue("Резорба").pressEnter();
        
         //Проверяем, что в таблице есть препарат
         $(".pills__table").shouldHave(text("Резорба"));

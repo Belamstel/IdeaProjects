@@ -15,8 +15,8 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-@Feature("Работа с задачми")
-public class ListenerTest {
+@Feature("Работа с задачами")
+public class IssueWithListenerTest {
 
     private static final int ISSUE = 12;
     private static final String BASE_URL = "https://github.com";
