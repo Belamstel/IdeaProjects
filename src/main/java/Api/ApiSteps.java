@@ -10,31 +10,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class ApiSteps {
 
-    private String gitHubToken = "";
-    private String baseUrl = "https://api.github.com";
-    private String baseUrlPath = "/repos/belamstel/qa_guruProjects/issues";
-
-/*
-    @Step("Проверяем создание задачи")
-    public Issue checkCreateIssue() {
-        gitHubToken = getCredentialsFromJson("ApiTests.secret", "GitHub");
-        // @formatter:off
-        return given()
-                .filter(new AllureRestAssured())
-                .header("Authorization", "token " + gitHubToken)
-                .baseUri(baseUrl)
-                .when()
-                .get(baseUrlPath)
-                .then()
-                .statusCode(200)
-                .extract()
-                .response()
-                .as(Issue.class);
-
-
-        // @formatter:on
-    }
-*/
     @Step("Проверяем созданную Issue")
     public void shouldSeeIssueWithNumber(final String ISSUE_NUMBER, final String ISSUE_TITLE, final String ISSUE_TEXT) {
         parameter("Номер задачи", ISSUE_NUMBER);
@@ -56,7 +31,5 @@ public class ApiSteps {
                 .body("number", equalTo(ISSUE_NUMBER))
                 .body("title", equalTo(ISSUE_TITLE))
                 .body("body",equalTo(ISSUE_TEXT));
-
-        //       $(withText("#" + ISSUE_NUMBER)).should(Condition.exist);
     }
 }

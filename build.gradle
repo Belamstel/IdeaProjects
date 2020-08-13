@@ -6,6 +6,9 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
     mavenCentral()
 }
@@ -33,12 +36,8 @@ dependencies {
     compile("org.junit.jupiter:junit-jupiter-engine:5.6.2")
     compile("org.junit.jupiter:junit-jupiter-params:5.6.2")
     compile("org.json:json:20200518")
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 
-
-//    testImplementation 'io.rest-assured:rest-assured:4.3.1'
-//    testImplementation 'com.codeborne:selenide:5.13.0'
-//  testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
-//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
 }
 
 tasks.withType(JavaCompile) {
