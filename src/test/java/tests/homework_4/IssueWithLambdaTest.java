@@ -43,7 +43,7 @@ public class IssueWithLambdaTest {
         link("GitHub", String.format("%s/%s", BASE_URL, REPOSITORY));
         parameter("Репозиторий", REPOSITORY);
 
-        step("Авторизируемся на GitHub", () -> {
+        step("Авторизуемся на GitHub", () -> {
             open(BASE_URL);
             $(byText("Sign in")).click();
             $("#login_field").setValue(LOGIN);
@@ -55,11 +55,8 @@ public class IssueWithLambdaTest {
             open(BASE_URL + REPOSITORY);
         });
 
-        step("Переходим на вкладку Issues", () -> {
-            $x("//span[text()='Issues']").click();
-        });
-
         step("Создаем новую Issue", () -> {
+            $x("//span[text()='Issues']").click();
             $x("//span[text()='New issue']").click();
             $("#issue_title").click();
             $("#issue_title").setValue(ISSUE_TITLE);
@@ -69,11 +66,10 @@ public class IssueWithLambdaTest {
             number = $x("//span[contains(text(),'#')]").getText()
                     .replace("#", "");
         });
-/*
-             step("Проверяем заполненные поля Issue через API", () -> {
+
+        step("Проверяем заполненные поля Issue через API", () -> {
                  apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE,ISSUE_TEXT);
              });
             }
- */
-    }
 }
+
