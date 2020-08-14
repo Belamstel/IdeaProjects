@@ -20,7 +20,6 @@ import static io.qameta.allure.Allure.*;
 @Feature("Работа с задачами")
 
 public class IssueWithLambdaTests {
-    private static final int ISSUE_NUMBER = 4;
     private static final String BASE_URL = "https://github.com/";
     private static final String REPOSITORY = "belamstel/qa_guruProjects";
     private static final String LOGIN = getCredentialsFromJson("Credentials.json", "login");
