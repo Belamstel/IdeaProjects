@@ -12,12 +12,12 @@ public class ApiSteps {
 
     @Step("Проверяем созданную Issue")
     public void shouldSeeIssueWithNumber(final String ISSUE_NUMBER, final String ISSUE_TITLE, final String ISSUE_TEXT) {
-        parameter("Номер задачи", ISSUE_NUMBER);
+        parameter("Номер Issue", ISSUE_NUMBER);
 
         String gitHubToken = "";
         String baseUrl = "https://api.github.com";
         String baseUrlPath = "/repos/belamstel/qa_guruProjects/issues";
-        gitHubToken = getCredentialsFromJson("ApiTests.secret", "GitHub");
+        gitHubToken = getCredentialsFromJson("Credentials.json", "GitHub");
 
         Issue issue = new Issue();
         issue = (Issue) given()

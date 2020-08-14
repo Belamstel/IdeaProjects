@@ -20,7 +20,7 @@
 *.rar
 *.iml
 #Custom files
-*.secret
+*.json
 
 # Project gen files
 .idea

@@ -18,8 +18,8 @@ import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 public class IssueWithListenerTests {
     private static final String BASE_URL = "https://github.com/";
     private static final String REPOSITORY = "belamstel/qa_guruProjects";
-    private static final String LOGIN = getCredentialsFromJson("ApiTests.secret", "login");
-    private static final String PASSWORD = getCredentialsFromJson("ApiTests.secret", "pass");
+    private static final String LOGIN = getCredentialsFromJson("Credentials.json", "login");
+    private static final String PASSWORD = getCredentialsFromJson("Credentials.json", "pass");
     private static final String ISSUE_TITLE = "Homework 4";
     private static final String ISSUE_TEXT = "test";
     private final ApiSteps apiSteps = new ApiSteps();

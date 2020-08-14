@@ -1,34 +1,18 @@
 package steps.helpers;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class LoadCredentials {
+    public static String getCredentialsFromJson(String filePath, String JsonKey) throws FileNotFoundException {
+            FileReader reader = new FileReader(filePath);
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+            String jsonValue = (String) jsonObject.get(JsonKey);
+    return jsonValue;
 
-    public static byte[] readBytesFromFile(String filePath) {
-        File file = new File(filePath);
-        try {
-            return Files.readAllBytes(Paths.get(file.getAbsolutePath()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new byte[]{};
     }
-
-    public static String readStringFromFile(String filePath)  {
-        return new String(readBytesFromFile(filePath));
-    }
-
-    public static String getCredentialsFromJson(String filePath, String JsonKey)  {
-        JSONObject jsonCredentials = new JSONObject(readStringFromFile(filePath));
-        String readCredentials;
-        readCredentials = jsonCredentials.getString(JsonKey);
-
-        return readCredentials;
-    }
-
 }
