@@ -1,9 +1,9 @@
-package Api;
+package steps.Api;
 
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 
-import static helpers.LoadCredentials.getCredentialsFromJson;
+import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 import static io.qameta.allure.Allure.parameter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;

@@ -1,6 +1,6 @@
 package tests.homework_4;
 
-import Api.ApiSteps;
+import steps.Api.ApiSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static helpers.LoadCredentials.getCredentialsFromJson;
+import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 import static io.qameta.allure.Allure.*;
 
 
@@ -38,7 +38,7 @@ public class IssueWithLambdaTests {
     }
 
     @Test
-    @DisplayName("Создаем Issue через UI и проверяем по Api")
+    @DisplayName("Создаем Issue через UI и проверяем по steps.Api")
     public void сreateIssue() {
         link("GitHub");
         parameter("Репозиторий", REPOSITORY);

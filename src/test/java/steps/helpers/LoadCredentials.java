@@ -1,4 +1,4 @@
-package helpers;
+package steps.helpers;
 
 import org.json.JSONObject;
 

@@ -1,14 +1,14 @@
 package tests.homework_4;
 
-import Api.ApiSteps;
-import Api.BasicSteps;
+import steps.Api.ApiSteps;
+import steps.Api.BasicSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static helpers.LoadCredentials.getCredentialsFromJson;
+import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 
 public class IssueWithStepsTests {
     private static final String BASE_URL = "https://github.com/";
