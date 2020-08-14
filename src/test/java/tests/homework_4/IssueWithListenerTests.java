@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static helpers.LoadCredentials.getCredentialsFromJson;
 
 @Feature("Работа с задачами")
-public class IssueWithListenerTest {
+public class IssueWithListenerTests {
     private static final String BASE_URL = "https://github.com/";
     private static final String REPOSITORY = "belamstel/qa_guruProjects";
     private static final String LOGIN = getCredentialsFromJson("ApiTests.secret", "login");

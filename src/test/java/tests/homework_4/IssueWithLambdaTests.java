@@ -19,7 +19,7 @@ import static io.qameta.allure.Allure.*;
 @Owner("ADyachenko")
 @Feature("Работа с задачами")
 
-public class IssueWithLambdaTest {
+public class IssueWithLambdaTests {
     private static final int ISSUE_NUMBER = 4;
     private static final String BASE_URL = "https://github.com/";
     private static final String REPOSITORY = "belamstel/qa_guruProjects";
@@ -40,7 +40,7 @@ public class IssueWithLambdaTest {
     @Test
     @DisplayName("Создаем Issue через UI и проверяем по Api")
     public void сreateIssue() {
-        link("GitHub", String.format("%s/%s", BASE_URL, REPOSITORY));
+        link("GitHub");
         parameter("Репозиторий", REPOSITORY);
 
         step("Авторизуемся на GitHub", () -> {
