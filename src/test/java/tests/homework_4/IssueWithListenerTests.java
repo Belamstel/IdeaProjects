@@ -37,16 +37,22 @@ public class IssueWithListenerTests {
     public void withNamedBy() {
         open(BASE_URL);
         $(byText("Sign in")).click();
-        $(css("#login_field").as("Логин")).setValue(LOGIN);
-        $(css("#password").as("Пароль")).setValue(PASSWORD);
+        $(css("#login_field")
+                .as("Логин")).setValue(LOGIN);
+        $(css("#password")
+                .as("Пароль")).setValue(PASSWORD);
         $(byName("commit")).click();
         open(BASE_URL + REPOSITORY);
         $x("//span[text()='Issues']").click();
         $x("//span[text()='New issue']").click();
-        $(css("#issue_title").as("Заголовок")).click();
-        $(css("#issue_title").as("Заголовок")).setValue(ISSUE_TITLE);
-        $(css("#issue_body").as("Комментарий")).click();
-        $(css("#issue_body").as("Комментарий")).setValue(ISSUE_TEXT);
+        $(css("#issue_title")
+                .as("Заголовок")).click();
+        $(css("#issue_title")
+                .as("Заголовок")).setValue(ISSUE_TITLE);
+        $(css("#issue_body")
+                .as("Комментарий")).click();
+        $(css("#issue_body")
+                .as("Комментарий")).setValue(ISSUE_TEXT);
         $(byText("Submit new issue")).click();
         number = $x("//span[contains(text(),'#')]").getText()
                 .replace("#", "");
