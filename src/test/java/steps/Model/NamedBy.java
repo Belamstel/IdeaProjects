@@ -1,4 +1,4 @@
-package steps.Api;
+package steps.Model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;

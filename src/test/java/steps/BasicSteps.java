@@ -1,4 +1,4 @@
-package steps.Api;
+package steps;
 
 import io.qameta.allure.Step;
 
@@ -16,7 +16,7 @@ public class BasicSteps {
     }
 
     @Step("Авторизуемся в Github")
-    public void signInGithub(final String LOGIN,final String PASSWORD) {
+    public void signInGithub(final String LOGIN, final String PASSWORD) {
         $(byText("Sign in")).click();
         $("#login_field").setValue(LOGIN);
         $("#password").setValue(PASSWORD);

@@ -1,6 +1,6 @@
 package tests.homework_4;
 
-import steps.Api.ApiSteps;
+import steps.ApiSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static steps.Api.NamedBy.css;
+import static steps.Model.NamedBy.css;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -23,7 +23,6 @@ public class IssueWithListenerTests {
     private static final String ISSUE_TITLE = "Homework 4";
     private static final String ISSUE_TEXT = "test";
     private final ApiSteps apiSteps = new ApiSteps();
-    private String number = "";
 
     @BeforeEach
     public void initLogger() {
@@ -33,7 +32,7 @@ public class IssueWithListenerTests {
     }
 
     @Test
-    @DisplayName("Пользователь должен иметь возможность найти Issue по номеру")
+    @DisplayName("Создание Issue и проверка по номеру")
     public void withNamedBy() {
         open(BASE_URL);
         $(byText("Sign in")).click();
@@ -42,21 +41,17 @@ public class IssueWithListenerTests {
         $(css("#password")
                 .as("Пароль")).setValue(PASSWORD);
         $(byName("commit")).click();
+
         open(BASE_URL + REPOSITORY);
-        $x("//span[text()='Issues']").click();
-        $x("//span[text()='New issue']").click();
-        $(css("#issue_title")
-                .as("Заголовок")).click();
+        $(byText("Issues")).click();
+        $(byText("New Issue")).click();
         $(css("#issue_title")
                 .as("Заголовок")).setValue(ISSUE_TITLE);
         $(css("#issue_body")
-                .as("Комментарий")).click();
-        $(css("#issue_body")
                 .as("Комментарий")).setValue(ISSUE_TEXT);
         $(byText("Submit new issue")).click();
-        number = $x("//span[contains(text(),'#')]").getText()
-                .replace("#", "");
-        apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE,ISSUE_TEXT);
+        String number = $x("//span[contains(text(),'#')]").getText().replace("#", "");
+        apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE, ISSUE_TEXT);
     }
 }
 

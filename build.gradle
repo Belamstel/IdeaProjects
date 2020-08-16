@@ -35,7 +35,7 @@ dependencies {
     compile("org.junit.jupiter:junit-jupiter-engine:5.6.2")
     compile("org.junit.jupiter:junit-jupiter-params:5.6.2")
     compile("org.json:json:20200518")
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+    compile ("org.aspectj:aspectjweaver:1.9.6:")
 
 }
 

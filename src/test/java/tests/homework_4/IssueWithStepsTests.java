@@ -1,12 +1,12 @@
 package tests.homework_4;
 
-import steps.Api.ApiSteps;
-import steps.Api.BasicSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import steps.ApiSteps;
+import steps.BasicSteps;
 
 import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 
@@ -17,11 +17,10 @@ public class IssueWithStepsTests {
     private static final String PASSWORD = getCredentialsFromJson("Credentials.json", "pass");
     private static final String ISSUE_TITLE ="Homework 4";
     private static final String ISSUE_TEXT = "test";
-    private static String number = "";
     private final BasicSteps webSteps = new BasicSteps();
     private final ApiSteps apiSteps = new ApiSteps();
 
-    @BeforeEach
+    @BeforeAll
     public void initLogger() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
@@ -29,12 +28,12 @@ public class IssueWithStepsTests {
     }
 
     @Test
-    @DisplayName("Пользователь не должен найти отсутствующую Issue по номеру")
-    public void shouldNotFindIssueByMissingNumber() {
+    @DisplayName("Создание Issue и проверка по номеру")
+    public void shouldFindIssueByNumber() {
         webSteps.openMainPage(BASE_URL);
-        webSteps.signInGithub(LOGIN,PASSWORD);
+        webSteps.signInGithub(LOGIN, PASSWORD);
         webSteps.searchForRepository(BASE_URL, REPOSITORY);
-        number = webSteps.createNewIssue(ISSUE_TITLE,ISSUE_TEXT);
+        String number = webSteps.createNewIssue(ISSUE_TITLE, ISSUE_TEXT);
         apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE,ISSUE_TEXT);
     }
 

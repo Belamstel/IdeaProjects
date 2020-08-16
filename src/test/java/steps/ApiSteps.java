@@ -1,7 +1,8 @@
-package steps.Api;
+package steps;
 
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
+import steps.Model.Issue;
 
 import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 import static io.qameta.allure.Allure.parameter;

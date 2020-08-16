@@ -1,19 +1,19 @@
 package tests.homework_4;
 
-import steps.Api.ApiSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import steps.ApiSteps;
 
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 import static io.qameta.allure.Allure.*;
+import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 
 
 @Owner("ADyachenko")
@@ -29,7 +29,7 @@ public class IssueWithLambdaTests {
     private final ApiSteps apiSteps = new ApiSteps();
     private String number = "";
 
-    @BeforeEach
+    @BeforeAll
     public void initLogger() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
@@ -37,7 +37,7 @@ public class IssueWithLambdaTests {
     }
 
     @Test
-    @DisplayName("Создаем Issue через UI и проверяем по steps.Api")
+    @DisplayName("Создаем Issue через UI и проверяем по Api")
     public void сreateIssue() {
         link("GitHub");
         parameter("Репозиторий", REPOSITORY);
@@ -50,25 +50,22 @@ public class IssueWithLambdaTests {
             $(byName("commit")).click();
         });
 
-        step("Открываем репозиторий" + REPOSITORY, () -> {
+        step("Открываем репозиторий " + REPOSITORY, () -> {
             open(BASE_URL + REPOSITORY);
         });
 
         step("Создаем новую Issue", () -> {
-            $x("//span[text()='Issues']").click();
-            $x("//span[text()='New issue']").click();
-            $("#issue_title").click();
+            $(byText("Issues")).click();
+            $(byText("New Issue")).click();
             $("#issue_title").setValue(ISSUE_TITLE);
-            $("#issue_body").click();
             $("#issue_body").setValue(ISSUE_TEXT);
             $(byText("Submit new issue")).click();
-            number = $x("//span[contains(text(),'#')]").getText()
-                    .replace("#", "");
+            number = $x("//span[contains(text(),'#')]").getText().replace("#", "");
         });
 
         step("Проверяем заполненные поля Issue через API", () -> {
-                 apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE,ISSUE_TEXT);
-             });
-            }
+            apiSteps.shouldSeeIssueWithNumber(number, ISSUE_TITLE,ISSUE_TEXT);
+        });
+    }
 }
 

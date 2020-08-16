@@ -1,4 +1,4 @@
-package steps.Api;
+package steps.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
