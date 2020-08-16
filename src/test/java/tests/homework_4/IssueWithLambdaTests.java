@@ -30,7 +30,7 @@ public class IssueWithLambdaTests {
     private String number = "";
 
     @BeforeAll
-    public void initLogger() {
+    public static void initLogger() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
                 .screenshots(true));

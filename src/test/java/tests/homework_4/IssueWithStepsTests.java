@@ -21,7 +21,7 @@ public class IssueWithStepsTests {
     private final ApiSteps apiSteps = new ApiSteps();
 
     @BeforeAll
-    public void initLogger() {
+    public static void initLogger() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
                 .screenshots(true));

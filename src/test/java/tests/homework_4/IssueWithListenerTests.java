@@ -1,17 +1,17 @@
 package tests.homework_4;
 
-import steps.ApiSteps;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import steps.ApiSteps;
 
-import static steps.Model.NamedBy.css;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static steps.Model.NamedBy.css;
 import static steps.helpers.LoadCredentials.getCredentialsFromJson;
 
 @Feature("Работа с задачами")
@@ -24,8 +24,8 @@ public class IssueWithListenerTests {
     private static final String ISSUE_TEXT = "test";
     private final ApiSteps apiSteps = new ApiSteps();
 
-    @BeforeEach
-    public void initLogger() {
+    @BeforeAll
+    public static void initLogger() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
                 .screenshots(true));
