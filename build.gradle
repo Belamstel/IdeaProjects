@@ -53,3 +53,9 @@ task simple_tests(type: Test) {
         includeTags 'simple_tests'
     }
 }
+
+task apple_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'apple_tag'
+    }
+}
