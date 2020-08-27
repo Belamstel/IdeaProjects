@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("simple_tests")
+@Tag("Parametrized_Test")
 public class ParametrizedTests {
     static Logger logger = LoggerFactory.getLogger(ParametrizedTests.class);
 
