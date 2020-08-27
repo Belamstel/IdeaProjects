@@ -23,7 +23,7 @@ allure {
 }
 
 dependencies {
-    compile("org.aspectj:aspectjweaver:1.9.6'")
+
     compile("com.codeborne:selenide:5.13.1")
 
     compile("io.rest-assured:rest-assured:4.3.1")
