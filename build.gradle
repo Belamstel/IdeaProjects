@@ -45,6 +45,12 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties = System.properties
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 
 }
 
@@ -56,6 +62,6 @@ task simple_tests(type: Test) {
 
 task Parametrized_Test(type: Test) {
     useJUnitPlatform {
-        includeTags 'apple_tag'
+        includeTags 'apple_test'
     }
 }

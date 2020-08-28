@@ -11,13 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ParametrizedTests {
     static Logger logger = LoggerFactory.getLogger(ParametrizedTests.class);
 
-
     @Test
-    @Tag("apple_tag")
+    @Tag("apple_test")
     void paramTest() {
         String name = System.getProperty("name");
         System.out.println(name);
         logger.info("name = " + name);
         assertEquals("apple", name, "name = " + name);
     }
+
+
 }
