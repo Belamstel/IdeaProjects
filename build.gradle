@@ -60,8 +60,9 @@ task simple_tests(type: Test) {
     }
 }
 
-task Parametrized_Test(type: Test) {
+task param_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'apple_test'
     }
 }
+

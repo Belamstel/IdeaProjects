@@ -19,6 +19,4 @@ public class ParametrizedTests {
         logger.info("name = " + name);
         assertEquals("apple", name, "name = " + name);
     }
-
-
 }
