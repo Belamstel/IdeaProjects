@@ -14,7 +14,7 @@ public class ParametrizedTests {
     @Test
     @Tag("apple_test")
     void paramTest() {
-        String name = System.getProperty("name");
+        String name = System.getProperty("name", "apple");
         System.out.println(name);
         logger.info("name = " + name);
         assertEquals("apple", name, "name = " + name);
