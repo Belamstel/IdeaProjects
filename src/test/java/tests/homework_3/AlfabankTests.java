@@ -11,7 +11,7 @@ import static com.codeborne.selenide.CollectionCondition.*;
 
 @Tag("web_tests")
 public class AlfabankTests {
-    
+    /*
     @Test
     void archiveDepositTest() {
         // Открываем сайт
@@ -39,5 +39,7 @@ public class AlfabankTests {
         // Проверяем что перешли на нужную страницу
         $("h1").shouldHave(text("Страхование вкладов"));
     }
+
+     */
 
 }

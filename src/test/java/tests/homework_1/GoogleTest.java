@@ -21,6 +21,7 @@ class GoogleTest {
         // Проверить, что Selenide появился в результатах поиска
         $("html").shouldHave(text("ru.selenide.org"));
     }
+    /*
     @Test
     void selenideYandexTest() {
         // Открыть google
@@ -32,4 +33,6 @@ class GoogleTest {
         // Проверить, что Selenide появился в результатах поиска
         $("html").shouldHave(text("ru.selenide.org"));
     }
+
+     */
 }
