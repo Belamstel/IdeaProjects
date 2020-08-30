@@ -1,4 +1,4 @@
-package tests.secondHW;
+package tests.homework_2;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

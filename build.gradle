@@ -60,6 +60,12 @@ task simple_tests(type: Test) {
     }
 }
 
+task web(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web_tests'
+    }
+}
+
 task param_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'apple_test'
