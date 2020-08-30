@@ -4,11 +4,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tests.TestBase;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("Parametrized_Test")
-public class ParametrizedTests {
+public class ParametrizedTests extends TestBase {
     static Logger logger = LoggerFactory.getLogger(ParametrizedTests.class);
 
     @Test

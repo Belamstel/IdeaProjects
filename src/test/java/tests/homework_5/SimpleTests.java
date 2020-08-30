@@ -2,11 +2,12 @@ package tests.homework_5;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("simple_tests")
-public class SimpleTests {
+public class SimpleTests extends TestBase {
 
     @Test
     void positiveTest() {
