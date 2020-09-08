@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static helpers.AttachmentsHelper.attachVideo;
 import static org.openqa.selenium.logging.LogType.*;
 import static steps.helpers.AttachmentsHelper.*;
 
@@ -30,6 +31,7 @@ public class TestBase {
         attachAsText("getBrowserConsoleLogs console logs", getBrowserConsoleLogs());
         attachAsText("getClientConsoleLogs console logs", getClientConsoleLogs());
         attachAsText("getDriverConsoleLogs console logs", getDriverConsoleLogs());
+        attachVideo();
 
         closeWebDriver();
     }
